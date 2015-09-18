@@ -1,0 +1,39 @@
+{
+  "name": "generator-jhw-vuejs",
+  "version": "0.0.1",
+  "description": "A simple Vue + Webpack yeoman generator for juhuiwan.cn",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "birdeggegg/generator-vuejs",
+  "author": {
+    "name": "zerob13",
+    "email": "zerob13@gmail.com",
+    "url": "https://github.com/zerob13"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "generator-vuejs",
+    "vue",
+    "vuejs",
+    "babel",
+    "es6",
+    "vue-router",
+    "webpack",
+    "postcss"
+  ],
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "mkdirp": "^0.5.1",
+    "yeoman-generator": "^0.20.2",
+    "yosay": "^1.0.2"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
