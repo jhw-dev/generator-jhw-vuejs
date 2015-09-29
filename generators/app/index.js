@@ -2,13 +2,14 @@
 var yeoman = require('yeoman-generator')
 var chalk = require('chalk')
 var yosay = require('yosay')
+var mkdirp = require('mkdirp')
 
 module.exports = yeoman.generators.Base.extend({
-  initializing: function () {
+  initializing: function() {
     this.pkg = require('../../package.json')
   },
 
-  prompting: function () {
+  prompting: function() {
     var done = this.async()
 
     // Have Yeoman greet the user.
@@ -33,52 +34,51 @@ module.exports = yeoman.generators.Base.extend({
         name: 'vue-resource',
         value: 'includeResource',
         checked: true
-      }, {
-        name: 'sass',
-        value: 'includeSass',
-        checked: true
       }]
     }]
 
-    this.prompt(prompts, function (answers) {
+    this.prompt(prompts, function(answers) {
       var features = answers.features || []
       this.projectName = answers.project
 
-      function hasFeature (feat) { return features.indexOf(feat) !== -1 }
+      function hasFeature(feat) {
+        return features.indexOf(feat) !== -1
+      }
 
       this.includeRouter = hasFeature('includeRouter')
       this.includeResource = hasFeature('includeResource')
-      this.includeSass = hasFeature('includeSass')
 
       this.config.set('includeRouter', this.includeRouter)
       this.config.set('includeResource', this.includeResource)
-      this.config.set('includeSass', this.includeSass)
       done()
     }.bind(this))
   },
 
-  writing: function () {
-    this._copyTpl('_package.json', 'package.json')
-    this._copy('_devindex.html', './build/index.html')
-    this._copy('_index.html', 'index.html')
-    this._copyTpl('_main.js', './src/main.js')
-    this._copyTpl('_app.vue', './src/app.vue')
-    this._copyTpl('_webpack.config.js', 'webpack.config.js')
-    this._copyTpl('_webpack.production.js', 'webpack.production.js')
-    this._copyTpl('_webpack.server.js', 'webpack.server.js')
-    this._copy('_gitignore', '.gitignore')
-    this._copy('_eslintrc', '.eslintrc')
+  writing: function() {
+    this._copyTpl('_package.json', 'package.json');
+    this._copy('_devindex.html', './src/index.html');
+    this._copy('_main.scss', './src/main.scss');
+    this._copyTpl('_main.js', './src/main.js');
+    this._copyTpl('_app.vue', './src/app.vue');
+    this._copyTpl('_webpack.config.js', 'webpack.config.js');
+    this._copy('_gitignore', '.gitignore');
+    this._copy('_gulpfile.js', 'gulpfile.js');
+    this._copy('_eslintrc', '.eslintrc');
+    mkdirp(this.destinationPath('./src/components'));
+    mkdirp(this.destinationPath('./src/images'));
   },
 
-  _copy: function (from, to) {
+  _copy: function(from, to) {
     this.fs.copy(this.templatePath(from), this.destinationPath(to))
   },
 
-  _copyTpl: function (from, to) {
+  _copyTpl: function(from, to) {
     this.fs.copyTpl(this.templatePath(from), this.destinationPath(to), this)
   },
 
-  install: function () {
-    this.installDependencies({bower: false})
+  install: function() {
+    this.installDependencies({
+      bower: false
+    })
   }
 })
