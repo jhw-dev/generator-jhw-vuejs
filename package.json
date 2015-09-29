@@ -1,7 +1,7 @@
 {
   "name": "generator-jhw-vuejs",
-  "version": "0.0.1",
-  "description": "A simple Vue + Webpack yeoman generator for juhuiwan.cn",
+  "version": "0.1.0",
+  "description": "A simple Vue + Webpack + gulp yeoman generator for juhuiwan.cn",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "birdeggegg/generator-vuejs",
@@ -25,7 +25,8 @@
     "es6",
     "vue-router",
     "webpack",
-    "postcss"
+    "postcss",
+    "gulp"
   ],
   "dependencies": {
     "chalk": "^1.0.0",

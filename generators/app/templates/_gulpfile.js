@@ -13,7 +13,7 @@ var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 var src = './src/';
 var dest = './dist/';
-var homepage = "./index.html";
+var homepage = "index.html";
 var config = {
   src: src,
   dest: dest,
@@ -22,7 +22,7 @@ var config = {
     index: homepage,
     port: 3000,
     logLevel: "debug",
-    logPrefix: "Aaron",
+    logPrefix: "JHW",
     open: true,
     files: [dest + "/*.js", "./index.html"]
   },

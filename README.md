@@ -4,8 +4,6 @@ This generator default use babel transforms to all your JavaScript, so you don't
 
 More infomation please refer to [vue-loader](https://github.com/vuejs/vue-loader)
 
-This generator is based on [BirdEggegg/generator-vuejs](https://github.com/BirdEggegg/generator-vuejs).
-
 ### Install && Usage
 ```
 $ npm install -g generator-jhw-vuejs
@@ -15,9 +13,8 @@ $ yo vuejs
 
 ### Command
 ```
-npm run watch   
-npm run build	
-npm run serve
+gulp watch
+gulp build
 ```
 ## License
 
