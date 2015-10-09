@@ -66,6 +66,7 @@ module.exports = yeoman.generators.Base.extend({
     this._copy('_eslintrc', '.eslintrc');
     mkdirp(this.destinationPath('./src/components'));
     mkdirp(this.destinationPath('./src/images'));
+    mkdirp(this.destinationPath('./src/static'));
   },
 
   _copy: function(from, to) {

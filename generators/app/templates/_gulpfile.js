@@ -77,10 +77,11 @@ function handleErrors() {
   this.emit('end');
 };
 
-gulp.task('web-server', function() {
+gulp.task('web-server', ['build'],function() {
   browserSync.init(config.webServer);
 });
-gulp.task('watch', ['webpack', 'img', 'html', 'web-server'], function() {
+
+gulp.task('watch', ['web-server'], function() {
   gulp.watch(config.script.watch, ['webpack']).on('change', reload);
   gulp.watch(config.scss.src, ['webpack']).on('change', reload);
   gulp.watch(config.src + '/**/*.vue', ['webpack']).on('change', reload);
@@ -88,7 +89,13 @@ gulp.task('watch', ['webpack', 'img', 'html', 'web-server'], function() {
   gulp.watch(config.html.watchAll, ['html']).on('change', reload);
 });
 
-gulp.task('html', ['clean'], function() {
+gulp.task('static', function() {
+
+  return gulp.src([src + 'static/**/*.*'])
+    .pipe(gulp.dest(dest + 'static'));
+});
+
+gulp.task('html', function() {
   return gulp.src([src + '**/*.html'])
     .pipe(gulp.dest(dest));
 });
@@ -101,4 +108,4 @@ gulp.task('clean', function(next) {
 
 gulp.task('default', ['watch']);
 
-gulp.task('build', ['webpack', 'img', 'html']);
+gulp.task('build', ['webpack', 'img', 'static', 'html']);
