@@ -1,6 +1,7 @@
 var vue = require('vue-loader')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var autoprefixer = require('autoprefixer')
+var webpack = require('webpack')
 module.exports = function(config) {
   return {
     // watch: true,
@@ -38,7 +39,8 @@ module.exports = function(config) {
       }]
     },
     plugins: [
-      new ExtractTextPlugin('[name].css')
+      new ExtractTextPlugin('[name].css'),
+      new webpack.optimize.UglifyJsPlugin()
     ],
     postcss: function() {
       return [autoprefixer]
