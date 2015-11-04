@@ -8,7 +8,7 @@ More infomation please refer to [vue-loader](https://github.com/vuejs/vue-loader
 ```
 $ npm install -g generator-jhw-vuejs
 $ mkdir myproject && cd myproject
-$ yo vuejs
+$ yo jhw-vuejs
 ```
 
 ### Command
