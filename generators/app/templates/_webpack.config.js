@@ -14,7 +14,7 @@ module.exports = function(config) {
         test: /\.vue$/,
         loader: 'vue'
       }, {
-        test: /\.(png|jpg)$/,
+        test: /\.(png|jpg|gif)$/,
         loader: 'url',
         query: {
           // limit for base64 inlining in bytes
