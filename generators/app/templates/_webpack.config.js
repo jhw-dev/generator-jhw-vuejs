@@ -21,7 +21,7 @@ module.exports = function(config) {
           limit: 10000,
           // custom naming format if file is larger than
           // the threshold
-          name: '[name].[ext]?[hash]'
+          name: 'images/[name].[ext]?[hash]'
         }
       }, {
         test: /\.js$/,
