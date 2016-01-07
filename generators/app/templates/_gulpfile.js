@@ -35,7 +35,7 @@ var config = {
     },
     output: {
       path: dest, //js位置
-      publicPath: dest, //web打包的资源地址
+      publicPath: '/dist', //web打包的资源地址
       filename: 'bundle.js'
     },
     sourceMap: true,
