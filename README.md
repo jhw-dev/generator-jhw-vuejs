@@ -13,8 +13,10 @@ $ yo jhw-vuejs
 
 ### Command
 ```
-gulp watch
-gulp build
+# watch
+npm run dev
+# build
+npm run build
 ```
 ## License
 
