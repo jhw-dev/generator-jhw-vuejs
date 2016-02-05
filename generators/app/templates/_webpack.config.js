@@ -2,8 +2,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var autoprefixer = require('autoprefixer')
 var webpack = require('webpack')
 module.exports = function(config) {
-  return {
-    // watch: true,
+  var obj = {
+    //     watch: true,
     //页面入口
     entry: config.script.entry,
     //出口文件输出配置
@@ -44,23 +44,25 @@ module.exports = function(config) {
       new ExtractTextPlugin('entry.css')
     ],
     postcss: [autoprefixer]
+  };
+  if (process.env.NODE_ENV === 'production') {
+    obj.plugins = [
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: '"production"'
+        }
+      }),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      }),
+      new ExtractTextPlugin('entry.css'),
+      new webpack.optimize.OccurenceOrderPlugin()
+    ]
+  } else {
+    obj.devtool = '#source-map'
   }
-}
-if (process.env.NODE_ENV === 'production') {
-  module.exports.plugins = [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.optimize.OccurenceOrderPlugin()
-  ]
-} else {
-  module.exports.devtool = '#source-map'
-}
 
+  return obj
+}
