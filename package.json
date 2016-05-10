@@ -1,6 +1,6 @@
 {
   "name": "generator-jhw-vuejs",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A simple Vue + Webpack + gulp yeoman generator for juhuiwan.cn",
   "license": "MIT",
   "main": "app/index.js",
@@ -31,7 +31,7 @@
   "dependencies": {
     "chalk": "^1.0.0",
     "mkdirp": "^0.5.1",
-    "yeoman-generator": "^0.22.5",
+    "yeoman-generator": "^0.23.3",
     "yosay": "^1.0.2"
   },
   "devDependencies": {

@@ -27,6 +27,21 @@ module.exports = function(config) {
         test: /\.js$/,
         loader: 'babel',
         exclude: /node_modules/
+      }, {
+        test: /\.woff$/,
+        loader: "url?limit=100&minetype=application/font-woff"
+      }, {
+        test: /\.svg/,
+        loader: "url?limit=100&minetype=application/font-svg"
+      }, {
+        test: /\.eot/,
+        loader: "url?limit=100&minetype=application/font-eot"
+      }, {
+        test: /\.woff2$/,
+        loader: "url?limit=100&minetype=application/font-woff2"
+      }, {
+        test: /\.ttf/,
+        loader: "url?limit=100&minetype=application/font-ttf"
       }]
     },
     vue: {
