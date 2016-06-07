@@ -82,7 +82,7 @@ gulp.task('web-server', ['build'],function() {
 
 gulp.task('watch', ['web-server'], function() {
   gulp.watch(config.script.watch, ['webpack']).on('change', reload);
-  gulp.watch(config.scss.src, ['webpack']).on('change', reload);
+  gulp.watch(config.scss.src, ['webpack']).on('change', reload({stream:true}));
   gulp.watch(config.src + '/**/*.vue', ['webpack']).on('change', reload);
   gulp.watch(config.html.watchHome, ['html']).on('change', reload);
   gulp.watch(config.html.watchAll, ['html']).on('change', reload);
