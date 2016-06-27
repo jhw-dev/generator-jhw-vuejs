@@ -1,6 +1,6 @@
 {
   "name": "generator-jhw-vuejs",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A simple Vue + Webpack yeoman generator for juhuiwan.cn",
   "license": "MIT",
   "main": "app/index.js",
