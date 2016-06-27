@@ -1,4 +1,4 @@
-A simple Vue + Webpack + Gulp yeoman generator for juhuiwan.cn
+A simple Vue + Webpack yeoman generator for juhuiwan.cn
 ## Getting Started
 This generator default use babel transforms to all your JavaScript, so you don't need to write `lang` attribute for script tag in vue file  
 

@@ -8,11 +8,11 @@
     <% if (includeRouter) { %>data() {
       return {
         text: 'vue'
-      }
+      };
     }<% } else { %>el: '#app',
       data: {
         text: 'vue'
       }<% } %>
-  }
+  };
 </script>
 <style src="./main.scss" lang="scss"></style>

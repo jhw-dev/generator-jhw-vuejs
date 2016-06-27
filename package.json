@@ -1,7 +1,7 @@
 {
   "name": "generator-jhw-vuejs",
-  "version": "0.3.2",
-  "description": "A simple Vue + Webpack + gulp yeoman generator for juhuiwan.cn",
+  "version": "0.4.0",
+  "description": "A simple Vue + Webpack yeoman generator for juhuiwan.cn",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "jhw-dev/generator-vuejs",
@@ -26,7 +26,7 @@
     "vue-router",
     "webpack",
     "postcss",
-    "gulp"
+    "eslint"
   ],
   "dependencies": {
     "chalk": "^1.1.3",
