@@ -13,7 +13,7 @@ module.exports = yeoman.Base.extend({
   },
 
   prompting: function() {
-    var done=this.async();
+    var done = this.async();
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the jhw\'s ' + chalk.red('Vue.js') + ' generator!'
@@ -56,24 +56,36 @@ module.exports = yeoman.Base.extend({
     }.bind(this));
   },
   writing: {
-    gulpfile: function() {
-      this._copy('_gulpfile.js', 'gulpfile.js')
-    },
+
     packageJson: function() {
       this._copyTpl('_package.json', 'package.json', {
         includeRouter: this.includeRouter,
         includeResource: this.includeResource,
-        projectName:this.projectName
+        projectName: this.projectName
       });
     },
     git: function() {
       this._copy('_gitignore', '.gitignore');
     },
     eslint: function() {
-      this._copy('_eslintrc', '.eslintrc');
+      this._copy('_eslintrc', '.eslintrc.js');
+    },
+    babel:function(){
+      this._copy('_babelrc', '.babelrc');
     },
     webpack: function() {
-      this._copy('_webpack.config.js', 'webpack.config.js');
+      mkdirp(this.destinationPath('./build'));
+      this._copy('build/build.js', './build/build.js');
+      this._copy('build/dev-client.js', './build/dev-client.js');
+      this._copy('build/dev-server.js', './build/dev-server.js');
+      this._copy('build/utils.js', './build/utils.js');
+      this._copy('build/webpack.base.conf.js', './build/webpack.base.conf.js');
+      this._copy('build/webpack.dev.conf.js', './build/webpack.dev.conf.js');
+      this._copy('build/webpack.prod.conf.js', './build/webpack.prod.conf.js');
+      mkdirp(this.destinationPath('./config'));
+      this._copy('config/dev.env.js', './config/dev.env.js');
+      this._copy('config/index.js', './config/index.js');
+      this._copy('config/prod.env.js', './config/prod.env.js');
     },
     vuefile: function() {
       this._copyTpl('_app.vue', './src/app.vue', {
@@ -89,12 +101,13 @@ module.exports = yeoman.Base.extend({
       this._copy('_main.scss', './src/main.scss');
     },
     html: function() {
-      this._copy('_index.html', './src/index.html');
+      this._copy('_index.html', './index.html');
     },
     misc: function() {
       mkdirp(this.destinationPath('./src/components'));
       mkdirp(this.destinationPath('./src/images'));
-      mkdirp(this.destinationPath('./src/static'));
+      mkdirp(this.destinationPath('./static'));
+      this._copy('_gitkeep', './static/.gitkeep');
     }
   },
   _copy: function(from, to) {
